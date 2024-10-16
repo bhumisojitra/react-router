@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Container } from 'react-bootstrap'
 import { useLocation, useNavigate } from 'react-router';
 
-const EditData = ({ submitData }) => {
+const EditData = ({ submitData, handleSave }) => {
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -27,9 +27,7 @@ const EditData = ({ submitData }) => {
             }
         });
 
-        localStorage.setItem('storage', JSON.stringify(update));
-
-        navigate('/view')
+        handleSave(update);
     }
 
     return (

@@ -1,34 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import img from '../../assets/1.avif'
-import { useNavigate } from 'react-router'
-import helper from '../Helper/Helper';
 
-const View = ({ submitData }) => {
+const View = ({ submitData, handleDelete, handleEdit }) => {
 
-    const navigate = useNavigate();
-
-    const [viewData, setViewData] = useState(submitData);
-
-    const handleEdit = (id) => {
-        const singleRec = viewData.find((rec)=>{
+    const handleEditD = (id) => {
+        const singleRec = submitData.find((rec)=>{
             return rec.id === id;
         })
-
-        navigate('/edit', {state: singleRec})
+        handleEdit(singleRec); 
     }
 
-    useEffect(() => {
-        setViewData(helper());
-    },[])
+    const handleDeleteD = (id) =>{
+        handleDelete(id);
+    }
+
+    // useEffect(() => {
+    //     setViewData(helper());
+    // },[])
 
   return (
     <div>
         <h1 className='text-center mt-4 fw-bold mb-5'>VIEW DATA</h1>
 
-        {viewData.length === 0 ? (
+        {submitData.length === 0 ? (
             <div className="no-data-container text-center">
                 <img src={img} alt="No data available" className='w-50 h-50 mb-5'/>
-                <p className='fw-semibold'>No data available to display.</p>
             </div>
         ) : (
 
@@ -52,7 +48,7 @@ const View = ({ submitData }) => {
             </thead>
             <tbody>
                 {
-                    viewData.map((data, index) => {
+                    submitData.map((data, index) => {
                         return (
                             <tr key={index} style={{textAlign: 'center', height: '80px', verticalAlign: 'middle'}}>
                                 <th scope="row">{index + 1}</th>
@@ -67,7 +63,8 @@ const View = ({ submitData }) => {
                                 <td>{data.sym}</td>
                                 <td>{data.appo}</td>
                                 <td>{data.doc}</td>
-                                <td><button className='btn btn-danger' onClick={() => handleEdit(data.id)}>Edit</button></td>
+                                <td><button className='btn me-2 btn-dark' onClick={() => handleEditD(data.id)}>Edit</button>
+                                <button className='btn btn-danger' onClick={() => handleDeleteD(data.id)}>Delete</button></td>
                             </tr>
                         )
                     })

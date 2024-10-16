@@ -21,7 +21,7 @@ function App() {
       add: '',
       sym: '',
       appo: '',
-      doc: '',
+      doc: 'pending',
   })
 
   const [submitData, setSubmitData] = useState(helper());
@@ -61,11 +61,30 @@ function App() {
       navigate('/view')
   }
 
-  useEffect(()=> {
+  const handleEdit = (data) => {
 
-    localStorage.setItem('storage', JSON.stringify(submitData));
+    navigate('/edit', { state: data });
+  };
 
-  },[submitData]);
+  const handleSave = (saveRec) =>{
+
+    setSubmitData(saveRec);
+    navigate('/view')
+  }
+
+  const handleDelete = (id) => {
+
+    const deleteData = submitData.filter((rec) => {
+        return rec.id !== id;
+    })
+
+    setSubmitData(deleteData);
+
+  }
+
+ useEffect(() => {
+  localStorage.setItem('storage', JSON.stringify(submitData));
+}, [submitData]);
 
   return (
     <>
@@ -73,8 +92,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/form' element={<Form handleInput={handleInput} handleSubmit={handleSubmit} input={input} />}/>
-        <Route path='/view' element={<View submitData={submitData}/>}/>
-        <Route path='/edit' element={<EditData submitData={submitData}/>}/>
+        <Route path='/view' element={<View submitData={submitData} handleEdit={handleEdit} handleDelete={handleDelete}/>}/>
+        <Route path='/edit' element={<EditData submitData={submitData} handleSave={handleSave}/>}/>
         <Route path="/pending" element={<FilteredView submitData={submitData} status="Pending" />} />
         <Route path="/accepted" element={<FilteredView submitData={submitData} status="Accepted" />} />
         <Route path="/completed" element={<FilteredView submitData={submitData} status="Completed" />} />

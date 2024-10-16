@@ -13,23 +13,23 @@ const Form = ({ handleInput, handleSubmit, input }) => {
             </div>
             <div className="col-md-6">
                 <label htmlFor="lname" className='mb-3 fw-bold'>Last-Name : </label>
-                <input type="text" className="form-control" name="lname" value={input.lname} onChange={handleInput}  />
+                <input type="text" className="form-control" name="lname" value={input.lname} onChange={handleInput}  required/>
             </div>
             <div className="col-md-6 mt-4">
                 <label htmlFor="email" className='mb-3 fw-bold'>Email : </label>
-                <input type="email" className="form-control" name="email" value={input.email} onChange={handleInput} />
+                <input type="email" className="form-control" name="email" value={input.email} onChange={handleInput} required/>
             </div>
             <div className="col-md-6 mt-4">
                 <label htmlFor="phone" className='mb-3 fw-bold'>Phone : </label>
-                <input type="tel" className="form-control" name="phone" value={input.phone} onChange={handleInput} />
+                <input type="tel" className="form-control" name="phone" value={input.phone} onChange={handleInput} required/>
             </div>
             <div className="col-md-4 mt-4">
                 <label htmlFor="date" className='mb-3 fw-bold'>Date : </label>
-                <input type="date" className="form-control" name="date" value={input.date} onChange={handleInput} />
+                <input type="date" className="form-control" name="date" value={input.date} onChange={handleInput} required/>
             </div>
             <div className="col-md-4 mt-4">
                 <label htmlFor="time" className='mb-3 fw-bold'>Time : </label>
-                <input type="time" className="form-control" name="time" value={input.time} onChange={handleInput} />
+                <input type="time" className="form-control" name="time" value={input.time} onChange={handleInput} required/>
             </div>
             <div className="col-md-4 mt-4">
                 <label className="form-label mb-3 fw-bold">Gender : </label>
@@ -42,11 +42,11 @@ const Form = ({ handleInput, handleSubmit, input }) => {
             </div>
             <div className="col-6 mt-4">
                 <label htmlFor="add" className='mb-3 fw-bold'>Address : </label>
-                <textarea type="text" rows="4" cols="50" className="form-control" name="add" value={input.add} onChange={handleInput} ></textarea>
+                <textarea type="text" rows="4" cols="50" className="form-control" name="add" value={input.add} onChange={handleInput} required></textarea>
             </div>
             <div className="col-6 mt-4">
                 <label htmlFor="sym" className='mb-3 fw-bold'>Symptoms : </label>
-                <textarea type="text" rows="4" cols="50" className="form-control" name="sym" value={input.sym} onChange={handleInput} ></textarea>
+                <textarea type="text" rows="4" cols="50" className="form-control" name="sym" value={input.sym} onChange={handleInput} required></textarea>
             </div>
             <div className="col-6 mt-4">
                 <label htmlFor="appo" className='mb-3 fw-bold'>Appointment : </label><br />
