@@ -90,8 +90,8 @@ function App() {
     <>
     <Header />
       <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/form' element={<Form handleInput={handleInput} handleSubmit={handleSubmit} input={input} />}/>
+        {/* <Route path='/' element={<Home />}/> */}
+        <Route path='/' element={<Form handleInput={handleInput} handleSubmit={handleSubmit} input={input} />}/>
         <Route path='/view' element={<View submitData={submitData} handleEdit={handleEdit} handleDelete={handleDelete}/>}/>
         <Route path='/edit' element={<EditData submitData={submitData} handleSave={handleSave}/>}/>
         <Route path="/pending" element={<FilteredView submitData={submitData} status="Pending" />} />

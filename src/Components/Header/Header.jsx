@@ -11,8 +11,7 @@ const Header = () => {
                 <h1 className='text-white'>MeDiCaL aPPOiNMeNT</h1>
             </div>
             <div>
-                <Link to={'/'} className='text-center text-white me-3 text-decoration-none'>HOME</Link>
-                <Link to={'/form'} className='text-center text-white me-3 text-decoration-none'>FORM</Link>
+                <Link to={'/'} className='text-center text-white me-3 text-decoration-none'>FORM</Link>
                 <Link to={'/view'} className='text-center text-white text-decoration-none me-3'>VIEW</Link>
                 <Link to={'/pending'} className='text-center text-white text-decoration-none me-3'>PENDING</Link>
                 <Link to={'/accepted'} className='text-center text-white text-decoration-none me-3'>ACCEPTED</Link>

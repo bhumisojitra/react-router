@@ -49,7 +49,7 @@ const Form = ({ handleInput, handleSubmit, input }) => {
                 <textarea type="text" rows="4" cols="50" className="form-control" name="sym" value={input.sym} onChange={handleInput} required></textarea>
             </div>
             <div className="col-6 mt-4">
-                <label htmlFor="appo" className='mb-3 fw-bold'>Appointment : </label><br />
+                    <label htmlFor="appo" className='mb-3 fw-bold'>Appointment : </label><br />
                 <input type="radio" name="appo" value="Pending" onChange={handleInput} />
                     <label for="html" className='ms-2 fw-medium'>Pending</label><br /> 
                 <input type="radio" name="appo" value="Accepted" onChange={handleInput} />
